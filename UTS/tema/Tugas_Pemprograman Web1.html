@@ -1,0 +1,122 @@
+<!-- Deklarasi dokumen HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Pengaturan karakter set dan tampilan responsif -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Penghubungan dengan file CSS eksternal -->
+    <link rel="stylesheet" href="gaya.css">
+    
+    <!-- Judul halaman -->
+    <title>Halaman Kesehatan</title>
+</head>
+<body>
+    <!-- Bagian header -->
+    <header>
+        <!-- Judul utama halaman -->
+        <h1>Selamat Datang di Halaman Kesehatan</h1>
+    </header>
+
+    <!-- Kontainer utama -->
+    <div class="container">
+        <!-- Bagian "Tentang Kami" -->
+        <h2>Tentang Kami</h2>
+        <p>
+            <!-- Deskripsi situs web -->
+            Kami adalah sebuah situs web yang berdedikasi untuk menyediakan informasi terkini tentang kesehatan dan gaya hidup sehat.
+        </p>
+
+        <!-- Bagian "Artikel Kesehatan" -->
+        <h2>Artikel Kesehatan</h2>
+        <p>
+            <!-- Pemberian link ke artikel kesehatan -->
+            Kami memiliki berbagai artikel informatif tentang topik-topik kesehatan yang penting. Silakan baca <a href="https://health.detik.com/">artikel kami</a> untuk informasi lebih lanjut.
+        </p>
+
+        <!-- Bagian "Tim Medis Kami" -->
+        <h2>Tim Medis Kami</h2>
+        <p>
+            <!-- Informasi tentang tim medis -->
+            Tim medis kami terdiri dari para profesional berpengalaman dalam bidang kesehatan yang siap membantu Anda. <a href="https://www.halodoc.com/">Hubungi kami</a> untuk konsultasi atau pertanyaan lebih lanjut.
+        </p>
+
+        <!-- Gambar ilustrasi kesehatan -->
+        <img height="500" width="500" style="vertical-align: middle;" src="healthcare.png" alt="Gambar Kesehatan">
+        <br>
+
+        <!-- Tabel informasi dokter -->
+        <table>
+            <tr>
+                <th>Nama</th>
+                <th>Umur</th>
+                <th>Jenis Kelamin</th>
+                <th>Spesialis</th>
+            </tr>
+            <tr>
+                <td>dr. Bagus Prasetyo</td>
+                <td>30</td>
+                <td>Laki-laki</td>
+                <td>THT</td>
+            </tr>
+            <tr>
+                <td>dr. Reisa Kartikasari</td>
+                <td>25</td>
+                <td>Perempuan</td>
+                <td>Mata</td>
+            </tr>
+        </table>
+        <br>
+
+        <!-- Bagian "Formulir Kesehatan" -->
+        <h2>Formulir Kesehatan</h2>
+        <form id="myForm" action="proses.php" method="post">
+            <!-- Input nama -->
+            <label for="nama">Nama:</label><br>
+            <input type="text" id="nama" name="nama" required><br><br>
+    
+            <!-- Input umur -->
+            <label for="umur">Umur:</label><br>
+            <input type="number" id="umur" name="umur" required><br><br>
+    
+            <!-- Pilihan jenis kelamin -->
+            <label for="jenis_kelamin">Jenis Kelamin:</label><br>
+            <select id="jenis_kelamin" name="jenis_kelamin" required>
+                <option value="laki-laki">Laki-laki</option>
+                <option value="perempuan">Perempuan</option>
+            </select><br><br>
+    
+            <!-- Area teks gejala -->
+            <label for="gejala">Gejala:</label><br>
+            <textarea id="gejala" name="gejala" rows="4" cols="50"></textarea><br><br>
+    
+            <!-- Tombol kirim formulir -->
+            <input type="submit" value="Kirim" id="submitButton">
+        </form>
+    </div> 
+
+    <!-- Bagian skrip JavaScript -->
+    <script>
+        // Fungsi untuk menangani event klik pada tombol kirim
+        function handleKirimClick(event) {
+            // Menghentikan perilaku default form (misalnya, mengirim form ke server)
+            event.preventDefault();
+
+            // Menghapus nilai dari semua input setelah satu detik
+            document.getElementById('nama').value = '';
+            document.getElementById('umur').value = '';
+            document.getElementById('jenis_kelamin').value = 'laki-laki'; // Menetapkan kembali nilai default
+            document.getElementById('gejala').value = '';
+
+            // Menampilkan pesan "Berhasil Terkirim" setelah satu detik
+            setTimeout(()=>{
+                alert("Berhasil Terkirim");
+            }, 1000)
+        }
+
+        // Menambahkan event listener ke tombol submit
+        document.getElementById('submitButton').addEventListener('click', handleKirimClick);
+    </script>
+</body>
+</html>
